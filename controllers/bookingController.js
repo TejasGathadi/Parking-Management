@@ -8,10 +8,11 @@ const createBookingController = async (req, res) => {
     // validation
     const user = await userModel.findOne({ email });
     if (!user) {
-      return res.status(500).send({
-        success: false,
-        message: "User not found",
-      });
+      return res.status(401).json({ message: "User not found" });
+      // return res.status(500).send({
+      //   success: false,
+      //   message: "User not found",
+      // });
     }
 
     const booking = new bookingModel(req.body);
