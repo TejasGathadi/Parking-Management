@@ -18,7 +18,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true }));
 
+app.use(express.json());
 // ROUTES
 app.use("/api/v1/auth", require("./routes/authRoutes"));
 app.use("/api/v1/booking", require("./routes/bookingRoutes"));

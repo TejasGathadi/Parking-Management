@@ -2,13 +2,37 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
+    role: {
+      type: String,
+      required: [true, "role is required"],
+      enum: ["admin", "user"],
+    },
     fname: {
       type: String,
-      required: [true, "Name is required"],
+      required: function () {
+        if (this.role === "user") {
+          return true;
+        }
+        return false;
+      },
     },
     lname: {
       type: String,
-      required: [true, "Last name is required"],
+      required: function () {
+        if (this.role === "user") {
+          return true;
+        }
+        return false;
+      },
+    },
+    organizationName: {
+      type: String,
+      required: function () {
+        if (this.role === "admin") {
+          return true;
+        }
+        return false;
+      },
     },
     email: {
       type: String,
@@ -21,7 +45,12 @@ const userSchema = new mongoose.Schema(
     },
     lPlateNumber: {
       type: String,
-      required: [true, "License Plate Number Required"],
+      required: function () {
+        if (this.role === "user") {
+          return true;
+        }
+        return false;
+      },
     },
   },
   { timestamps: true }

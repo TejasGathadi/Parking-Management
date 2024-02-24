@@ -20,27 +20,14 @@ const bookingSchema = new mongoose.Schema(
       ref: "users",
       required: [true, "License plate number required"],
     },
-    // email: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "users",
-    //   required: [true, "Email required"],
-    // },
-    // startDate: {
-    //   type: Date,
-    //   required: true,
-    // },
-    // endDate: {
-    //   type: Date,
-    //   required: true,
-    // },
-    // startTime: {
-    //   type: String,
-    //   required: true,
-    // },
-    // endTime: {
-    //   type: String,
-    //   required: true,
-    // },
+    slotTime: {
+      type: String,
+      require: [true, "Please Provide Slot Time"],
+    },
+    slotDate: {
+      type: Date,
+      required: [true, "Please Provide Slot Date"],
+    },
   },
   { timestamps: true }
 );
