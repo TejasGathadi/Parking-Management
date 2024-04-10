@@ -20,6 +20,10 @@ const bookingSchema = new mongoose.Schema(
       ref: "users",
       required: [true, "License plate number required"],
     },
+    licensePlateNumber: {
+      type: String,
+      required: [true, "License plate number required"],
+    },
     slotTime: {
       type: String,
       require: [true, "Please Provide Slot Time"],
@@ -27,6 +31,10 @@ const bookingSchema = new mongoose.Schema(
     slotDate: {
       type: Date,
       required: [true, "Please Provide Slot Date"],
+    },
+    destination: {
+      type: String,
+      required: [true, "Please Provide Destination"],
     },
   },
   { timestamps: true }

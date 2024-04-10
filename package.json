@@ -24,6 +24,7 @@
     "mongoose": "^7.6.8",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",
+    "razorpay": "^2.9.2",
     "react-datepicker": "^4.25.0",
     "react-redux": "^8.1.3"
   }
